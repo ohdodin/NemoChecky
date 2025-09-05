@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-struct SettingView: TabItemView {
-    var id = 4
-    var tabIcon = "gearshape"
-    var tabTitle = "설정"
-    var tabTag = Tab.setting
+struct SettingView: View {
     
     var body: some View {
         Text("SettiingView")
@@ -20,15 +16,4 @@ struct SettingView: TabItemView {
 
 #Preview {
     SettingView()
-}
-
-struct LeeoView: TabItemView {
-    var id = 5
-    var tabIcon = "setting"
-    var tabTitle = "설정"
-    var tabTag = Tab.setting
-    
-    var body: some View {
-        Text("SettiingView")
-    }
 }
