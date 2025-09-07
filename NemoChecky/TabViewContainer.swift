@@ -20,9 +20,9 @@ struct TabViewContainer: View {
                     }
                     .tag(item.tabTag)
             }
-
         }
         .environmentObject(viewModel)
+        .accentColor(.midnightBlue01)
     }
 }
 
