@@ -41,8 +41,8 @@ struct TaskItem: Hashable {
 
 final class TodayViewModel: ObservableObject {
     @Published var taskItems: [TaskItem] = [
-        TaskItem(title: "C6", totalTime: "10:00", currentTime: "10:00", iconName: "Icon01", colorScheme: .pink),
-        TaskItem(title: "사이드 프로젝트", totalTime: "00:00", currentTime: "00:00", iconName: "Icon02", colorScheme: .yellow),
+        TaskItem(title: "C6", totalTime: "10:00", currentTime: "10:00", iconName: "Icon01", colorScheme: .yellow),
+        TaskItem(title: "사이드 프로젝트", totalTime: "00:00", currentTime: "00:00", iconName: "Icon02", colorScheme: .pink),
         TaskItem(title: "리이오 멘토링", totalTime: "00:00", currentTime: "00:00", iconName: "Icon02", colorScheme: .sora),
     ]
 }
