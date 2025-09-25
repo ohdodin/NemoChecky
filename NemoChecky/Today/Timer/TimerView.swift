@@ -24,24 +24,31 @@ struct TimerView: View {
         ZStack {
             Color(.midnightBlue01)
                 .ignoresSafeArea()
-            VStack {
-                if viewModel.isDone {
+            VStack(spacing: 60) {
+                ZStack {
                     CircleTimerView(
                         viewModel: viewModel,
                         item: item
                     )
-                } else if !viewModel.isActive {
-                    Text(String(viewModel.countdown))
-                        .font(
-                            .system(size: 60, weight: .bold, design: .default)
-                        )
-                        .foregroundColor(.white)
-                } else {
-                    CircleTimerView(
-                        viewModel: viewModel,
-                        item: item
-                    )
+                    
+                    if viewModel.isDone || viewModel.isActive {
+                        Text(viewModel.displayTime)
+                            .font(.largeTitle)
+                            .foregroundStyle(Color(.white))
+                    } else {
+                        Text(String(viewModel.countdown))
+                            .font(
+                                .system(
+                                    size: 60,
+                                    weight: .bold,
+                                    design: .default
+                                )
+                            )
+                            .foregroundColor(.white)
+
+                    }
                 }
+                
                 if viewModel.isDone {
                     Button {
                         Task {
@@ -145,7 +152,6 @@ struct TimerView: View {
                             .offset(y: -viewModel.size / 2)
                             .rotationEffect(.degrees(Double(30) * Double(item)))
                             .foregroundStyle(.white)
-
                     }
                 }
 
@@ -177,11 +183,7 @@ struct TimerView: View {
                     )
                     .rotationEffect(.init(degrees: -90))
 
-                Text(viewModel.displayTime)
-                    .font(.largeTitle)
-                    .foregroundStyle(Color(.white))
             }
-            .padding(.bottom, 60)
         }
     }
 
