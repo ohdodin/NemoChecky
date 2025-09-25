@@ -43,7 +43,6 @@ struct TodayView: View {
             }
             .navigationBarStyle()
         }
-
     }
 
     struct HeaderView: View {
@@ -76,8 +75,7 @@ struct TodayView: View {
                     .frame(width: 320)
                 }.padding(24)
             }
-            .frame(height: 144
-            )
+            .frame(height: 144)
         }
     }
 
@@ -85,26 +83,26 @@ struct TodayView: View {
         var item: TaskItem
 
         var body: some View {
-            ZStack {
-                RoundedRectangle(cornerSize: .init(width: 16, height: 16))
-                    .fill(item.colorScheme.backgroundColor)
-                    .stroke(item.colorScheme.pointColor, lineWidth: 1)
-                HStack(spacing: 8) {
-                    Image(item.iconName)
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                        .font(.title)
-                        .cornerRadius(100)
-                    Text(item.title)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text(item.currentTime)
+            NavigationLink(destination: TimerView(item: item)) {
+                ZStack {
+                    RoundedRectangle(cornerSize: .init(width: 16, height: 16))
+                        .fill(item.colorScheme.backgroundColor)
+                        .stroke(item.colorScheme.pointColor, lineWidth: 1)
+                    HStack(spacing: 8) {
+                        Image(item.iconName)
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .font(.title)
+                            .cornerRadius(100)
+                        Text(item.title)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        Text(item.currentTime)
+                    }
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 16)
                 }
-                .padding(.vertical, 10)
-                .padding(.horizontal, 16)
-            }
-            .padding(.bottom, 16)
-            .onTapGesture { _ in
-                print(item.title)
+                .padding(.bottom, 16)
+                .foregroundStyle(.midnightDark01)
             }
         }
     }
