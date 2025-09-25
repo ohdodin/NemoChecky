@@ -7,28 +7,22 @@
 
 import SwiftUI
 
-protocol TabItemView: View, Identifiable {
-    var id: Int { get set }  // 프로토콜 쓰는 방법
-    var tabIcon: String { get }
-    var tabTitle: String { get }
-    var tabTag: Tab { get }
-}
-
 struct TabViewContainer: View {
     @StateObject var viewModel = TabViewModel()
 
     var body: some View {
         TabView {
             ForEach(viewModel.tabItems, id: \.id) { item in
-                AnyView(item)
+                item.tabTag.content
                     .tabItem {
-                        Image(systemName: item.tabIcon)
-                        Text(item.tabTitle)
+                        Image(systemName: item.tabTag.iconName)
+                        Text(item.tabTag.title)
                     }
                     .tag(item.tabTag)
             }
         }
         .environmentObject(viewModel)
+        .accentColor(.midnightBlue01)
     }
 }
 

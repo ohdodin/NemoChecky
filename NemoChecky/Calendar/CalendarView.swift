@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-struct CalendarView: TabItemView {
-    var id = 2
-    var tabIcon = "calendar"
-    var tabTitle = "캘린더"
-    var tabTag = Tab.calendar
+struct CalendarView: View {
     
     var body: some View {
         Text("CalendarView")

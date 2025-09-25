@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-struct ReportView: TabItemView {
-    var id = 3
-    var tabIcon = "chart.bar.fill"
-    var tabTitle = "리포트"
-    var tabTag = Tab.report
+struct ReportView: View {
     
     var body: some View {
         Text("ReportView")

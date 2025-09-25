@@ -7,15 +7,10 @@
 
 import SwiftUI
 
-struct ListView: TabItemView {
-    var id = 1
-    var tabIcon = "list.triangle"
-    var tabTitle = "기록"
-    var tabTag = Tab.list
+struct ListView: View {
     
     var body: some View {
         VStack {
-            Text("\(id)")
             Text("ListView")
         }
     }

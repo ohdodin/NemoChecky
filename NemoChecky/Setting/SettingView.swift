@@ -7,28 +7,21 @@
 
 import SwiftUI
 
-struct SettingView: TabItemView {
-    var id = 4
-    var tabIcon = "gearshape"
-    var tabTitle = "설정"
-    var tabTag = Tab.setting
-    
+struct SettingView: View {
+    @EnvironmentObject var viewModel: TabViewModel
+
     var body: some View {
-        Text("SettiingView")
+        VStack {
+            Button {
+                viewModel.changeTab(from: 0, to: 1)
+            } label: {
+                Image(systemName: "arrow.left.arrow.right")
+            }
+
+        }
     }
 }
 
 #Preview {
     SettingView()
-}
-
-struct LeeoView: TabItemView {
-    var id = 5
-    var tabIcon = "setting"
-    var tabTitle = "설정"
-    var tabTag = Tab.setting
-    
-    var body: some View {
-        Text("SettiingView")
-    }
 }
